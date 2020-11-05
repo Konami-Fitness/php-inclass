@@ -56,6 +56,15 @@ class Division extends Operation {
   }
 }
 
+class Exponent extends Operation {
+  public function operate() {
+    return pow($this->operand_1, $this->operand_2);
+  }
+  public function getEquation() {
+    return $this->operand_1 . ' ^ ' . $this->operand_2 . ' = ' . $this->operate();
+  }
+}
+
 // Some debugs - uncomment these to see what is happening...
 // echo '$_POST print_r=>',print_r($_POST);
 // echo "<br>",'$_POST vardump=>',var_dump($_POST);
@@ -100,6 +109,9 @@ class Division extends Operation {
       $op = new Multiplication($o1, $o2);
     }
 
+    if (isset($_POST['expo']) && $_POST['expo'] == 'Exponent') {
+      $op = new Exponent($o1, $o2);
+    }
   }
   catch (Exception $e) {
     $err[] = $e->getMessage();
@@ -136,7 +148,8 @@ class Division extends Operation {
     <input type="submit" name="add" value="Add" />  
     <input type="submit" name="sub" value="Subtract" />  
     <input type="submit" name="mult" value="Multiply" />  
-    <input type="submit" name="divi" value="Divide" />  
+    <input type="submit" name="divi" value="Divide" />
+    <input type="submit" name="expo" value="Exponent" />  
   </form>
 </body>
 </html>
