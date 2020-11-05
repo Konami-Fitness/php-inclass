@@ -57,10 +57,10 @@ class Division extends Operation {
 }
 
 // Some debugs - uncomment these to see what is happening...
-echo '$_POST print_r=>',print_r($_POST);
-echo "<br>",'$_POST vardump=>',var_dump($_POST);
-echo '<br/>$_POST is ', (isset($_POST) ? 'set' : 'NOT set'), "<br/>";
-echo "<br/>---";
+// echo '$_POST print_r=>',print_r($_POST);
+// echo "<br>",'$_POST vardump=>',var_dump($_POST);
+// echo '<br/>$_POST is ', (isset($_POST) ? 'set' : 'NOT set'), "<br/>";
+// echo "<br/>---";
 
 
 // Check to make sure that POST was received 
@@ -88,16 +88,16 @@ echo "<br/>---";
     }
 
 // Put code for subtraction, multiplication, and division here
-    if (isset($_POST['subtract']) && $_POST['subtract'] == 'Subtract') {
+    if (isset($_POST['sub']) && $_POST['sub'] == 'Subtract') {
       $op = new Subtraction($o1, $o2);
     }
 
-    if (isset($_POST['divide']) && $_POST['divide'] == 'Division') {
+    if (isset($_POST['divi']) && $_POST['divi'] == 'Divide') {
       $op = new Division($o1, $o2);
     }
 
-    if (isset($_POST['multiply']) && $_POST['multiply'] == 'Multiplication') {
-      $op = new Multiply($o1, $o2);
+    if (isset($_POST['mult']) && $_POST['mult'] == 'Multiply') {
+      $op = new Multiplication($o1, $o2);
     }
 
   }
