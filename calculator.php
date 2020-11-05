@@ -29,13 +29,38 @@ class Addition extends Operation {
 
 
 // Add subclasses for Subtraction, Multiplication and Division here
+class Subtraction extends Operation {
+  public function operate() {
+    return $this->operand_1 - $this->operand_2;
+  }
+  public function getEquation() {
+    return $this->operand_1 . ' - ' . $this->operand_2 . ' = ' . $this->operate();
+  }
+}
 
+class Multiplication extends Operation {
+  public function operate() {
+    return $this->operand_1 * $this->operand_2;
+  }
+  public function getEquation() {
+    return $this->operand_1 . ' * ' . $this->operand_2 . ' = ' . $this->operate();
+  }
+}
+
+class Division extends Operation {
+  public function operate() {
+    return $this->operand_1 / $this->operand_2;
+  }
+  public function getEquation() {
+    return $this->operand_1 . ' / ' . $this->operand_2 . ' = ' . $this->operate();
+  }
+}
 
 // Some debugs - uncomment these to see what is happening...
-// echo '$_POST print_r=>',print_r($_POST);
-// echo "<br>",'$_POST vardump=>',var_dump($_POST);
-// echo '<br/>$_POST is ', (isset($_POST) ? 'set' : 'NOT set'), "<br/>";
-// echo "<br/>---";
+echo '$_POST print_r=>',print_r($_POST);
+echo "<br>",'$_POST vardump=>',var_dump($_POST);
+echo '<br/>$_POST is ', (isset($_POST) ? 'set' : 'NOT set'), "<br/>";
+echo "<br/>---";
 
 
 // Check to make sure that POST was received 
@@ -61,7 +86,6 @@ class Addition extends Operation {
     if (isset($_POST['add']) && $_POST['add'] == 'Add') {
       $op = new Addition($o1, $o2);
     }
-
 
 // Put code for subtraction, multiplication, and division here
     if (isset($_POST['subtract']) && $_POST['subtract'] == 'Subtract') {
